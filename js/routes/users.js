@@ -5,13 +5,13 @@ const config = require('./../include/config.js');
 const jwt = require('jwt-simple');
 
 // connect to database
-var Database  = require('arangojs').Database;
-var db = new Database(config.db_location);
+const Database  = require('arangojs').Database;
+const db = new Database(config.db_location);
 db.useDatabase(config.db_name);
 
 // include passport
-var passport	= require('passport');
-var auth = require('./../include/auth.js')(passport);
+const passport	= require('passport');
+const auth = require('./../include/auth.js')(passport);
 apiRoutes.use(auth.initialize());
 
 // create a new user account (POST /api/users/register)
