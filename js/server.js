@@ -1,11 +1,10 @@
-var express = require('express');
-var app = express();
-var helmet = require("helmet");
-var bodyParser = require('body-parser');
-var morgan = require('morgan');
-var config = require('./include/config');
-var port = process.env.PORT || 4000;
-var users = require('./routes/users');
+const express = require('express');
+const app = express();
+const helmet = require("helmet");
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const port = process.env.PORT || 4000;
+const users = require('./routes/users');
 
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -40,6 +39,6 @@ app.get('/api/', function(req, res) {
 app.use('/api/users', users);
 
 // start the server
-app.listen(port, function() {
+app.listen(port, () => {
     console.log('My API is running on http://localhost:' + port);
 });
